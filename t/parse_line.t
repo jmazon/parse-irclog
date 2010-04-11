@@ -46,3 +46,14 @@ is_deeply(
 	{ type => 'unknown', text => '' },
 	"empty -> unknown"
 );
+
+is_deeply(
+        $parser->parse_line(' *  bm reminds all of this: <ab> HAHAHA DISREGARD THAT, I SUCK COCKS'),
+        { type => 'action',
+          timestamp => undef,
+          text => 
+            'reminds all of this: <ab> HAHAHA DISREGARD THAT, I SUCK COCKS',
+          nick_prefix => undef,
+          nick => 'bm' },
+        "subtle action"
+);
