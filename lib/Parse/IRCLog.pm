@@ -161,6 +161,8 @@ sub patterns {
   $p->{action_leader} = qr/\*/;
 
   $p->{msg} = qr/
+    ^
+    \s*
     $p->{timestamp}
     \s*
     $p->{nick_container}
@@ -169,6 +171,8 @@ sub patterns {
   /x;
 
   $p->{action} = qr/
+    ^
+    \s*
     $p->{timestamp}
     \s*
     $p->{action_leader}
