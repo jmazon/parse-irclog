@@ -142,12 +142,16 @@ sub patterns {
 
   # the other regexes are more relevant to the way irssi formats logs
 
-  $p->{nick_container} = qr/
-  <
-    \s*
+  my $decorated_nick = qr/
     ([+%@])?
     \s*
     $p->{nick}
+  /x;
+
+  $p->{nick_container} = qr/
+  <
+    \s*
+    $decorated_nick
     (?:
       :
       $p->{chan}
@@ -177,9 +181,7 @@ sub patterns {
     \s*
     $p->{action_leader}
     \s+
-    ([%@])?
-    \s*
-    $p->{nick}
+    $decorated_nick
     \s
     (.+)
   /x;

@@ -24,8 +24,8 @@ is_deeply(
 );
 
 is_deeply(
-	$parser->parse_line(' *  %q[uri] gives rjbs fudge!  '),
-	{ type => 'action', timestamp => undef, nick_prefix => '%', nick => 'q[uri]', text => 'gives rjbs fudge!  ' },
+	$parser->parse_line(' *  +q[uri] gives rjbs fudge!  '),
+	{ type => 'action', timestamp => undef, nick_prefix => '+', nick => 'q[uri]', text => 'gives rjbs fudge!  ' },
 	"boring action"
 );
 
